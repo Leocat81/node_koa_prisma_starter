@@ -1,12 +1,19 @@
-import Koa from 'koa';
-import Router from "koa-router";
+import Koa from "koa";
+import route from './routes/index';
+import { PrismaClient } from "@prisma/client";
 
 const koa = new Koa();
-const router = new Router();
+const prisma = new PrismaClient();
 
-router.get("/",async ctx =>{
-  ctx.body = 'hello world'
-})
 
-koa.use(router.routes())
-koa.listen(3003)
+async function main() {
+  const allUsers = await prisma.user.findMany();
+  await prisma.$disconnect();
+  console.log(allUsers);
+  return allUsers;
+}
+
+koa.use(route.routes());
+koa.listen(3003, () => {
+  console.log("server is running at http://localhost:3003");
+});

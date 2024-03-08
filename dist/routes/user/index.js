@@ -12,21 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const koa_1 = __importDefault(require("koa"));
-const index_1 = __importDefault(require("./routes/index"));
+const router_1 = __importDefault(require("@koa/router"));
 const client_1 = require("@prisma/client");
-const koa = new koa_1.default();
-const prisma = new client_1.PrismaClient();
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const allUsers = yield prisma.user.findMany();
-        yield prisma.$disconnect();
-        console.log(allUsers);
-        return allUsers;
-    });
-}
-koa.use(index_1.default.routes());
-koa.listen(3003, () => {
-    console.log("server is running at http://localhost:3003");
+const userRouter = new router_1.default({ prefix: '/user' });
+const prisma = new client_1.PrismaClient({
+    log: ['info'],
 });
-//# sourceMappingURL=app.js.map
+userRouter.get('/', (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+    const allUsers = yield prisma.user.findMany();
+    ctx.body = allUsers;
+}));
+exports.default = userRouter;
+//# sourceMappingURL=index.js.map
