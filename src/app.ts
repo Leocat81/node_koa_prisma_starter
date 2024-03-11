@@ -1,18 +1,15 @@
 import Koa from "koa";
-import route from './routes/index';
-import { PrismaClient } from "@prisma/client";
+import route from "./routes/index";
+import bodyParser from "@koa/bodyparser";
 
 const koa = new Koa();
-const prisma = new PrismaClient();
 
-
-async function main() {
-  const allUsers = await prisma.user.findMany();
-  await prisma.$disconnect();
-  console.log(allUsers);
-  return allUsers;
-}
-
+koa.use(
+  bodyParser({
+    enableTypes: ["text", "json", "form", "xml"],
+    encoding: "utf-8",
+  })
+);
 koa.use(route.routes());
 koa.listen(3003, () => {
   console.log("server is running at http://localhost:3003");
