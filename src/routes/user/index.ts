@@ -13,14 +13,9 @@ userRouter.get("/", async (ctx) => {
 
 userRouter.post("/", async (ctx) => {
   const body = ctx.request.body as any;
-  try {
   await prisma.user.create({
     data:body,
   });
-  } catch (error) {
-    console.log(error);
-  }
-
   ctx.body = "asdsd";
 });
 

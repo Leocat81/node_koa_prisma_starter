@@ -13,3 +13,9 @@
 [https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes)
 
 * 利用`@koa/bodyparser`解析请求报文
+
+## prisma
+
+* Prisma CLI
+
+> [https://www.prisma.io/docs/orm/tools/prisma-cli](https://www.prisma.io/docs/orm/tools/prisma-cli)
