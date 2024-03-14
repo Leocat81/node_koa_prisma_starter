@@ -19,3 +19,26 @@
 * Prisma CLI
 
 > [https://www.prisma.io/docs/orm/tools/prisma-cli](https://www.prisma.io/docs/orm/tools/prisma-cli)
+
+* mongodb副本集搭建
+
+[https://github.com/prisma/prisma/issues/8266](https://github.com/prisma/prisma/issues/8266)
+[https://github.com/prisma/docs/issues/2795](https://github.com/prisma/docs/issues/2795)
+
+```yml
+version: "3"
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    command: --replSet rs0
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+    volumes:
+      - /Users/sijunfeng/data/docker/mongodata:/data/db
+
+```
+
+> DATABASE_URL="mongodb://localhost:27017/zzbdiscar?directConnection=true"
