@@ -22,6 +22,8 @@
 
 * mongodb副本集搭建
 
+> mongodb 数据库使用事务来支持嵌套写入，所以prisma需要一个部署了副本集的mongodb服务
+
 [https://github.com/prisma/prisma/issues/8266](https://github.com/prisma/prisma/issues/8266)
 [https://github.com/prisma/docs/issues/2795](https://github.com/prisma/docs/issues/2795)
 
