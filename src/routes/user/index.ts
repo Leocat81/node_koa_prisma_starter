@@ -12,11 +12,13 @@ userRouter.get("/", async (ctx) => {
 });
 
 userRouter.post("/", async (ctx) => {
-  const body = ctx.request.body as any;
-  await prisma.user.create({
-    data:body,
+  const { name } = ctx.request.body;
+  const res = await prisma.user.create({
+    data: {
+      name,
+    },
   });
-  ctx.body = "asdsd";
+  ctx.body = res;
 });
 
 export default userRouter;

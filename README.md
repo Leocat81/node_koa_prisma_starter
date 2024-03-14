@@ -44,3 +44,7 @@ services:
 ```
 
 > DATABASE_URL="mongodb://localhost:27017/zzbdiscar?directConnection=true"
+
+## prisma REST API
+
+[https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md](https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md)
