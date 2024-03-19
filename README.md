@@ -1,4 +1,9 @@
 # node typescript prisma 项目模版
+
+> [https://koajs.com](https://koajs.com)
+
+> 接口文档地址 [https://t6y34ryrf5.apifox.cn](https://t6y34ryrf5.apifox.cn)
+
 * 使用 Typescript 來搭建 Koa 項目 [https://mattxlee.medium.com/%E4%BD%BF%E7%94%A8typescript%E4%BE%86%E6%90%AD%E5%BB%BAkoa%E9%A0%85%E7%9B%AE-3e6403735628](https://mattxlee.medium.com/%E4%BD%BF%E7%94%A8typescript%E4%BE%86%E6%90%AD%E5%BB%BAkoa%E9%A0%85%E7%9B%AE-3e6403735628)
 
 * vscode 调试 TypeScript [https://code.visualstudio.com/docs/typescript/typescript-debugging](https://code.visualstudio.com/docs/typescript/typescript-debugging)
@@ -7,10 +12,9 @@
 
 * koa-router 路由设计，采用模块化分离路由 [https://github.com/koajs/router/blob/HEAD/API.md#nested-routers](https://github.com/koajs/router/blob/HEAD/API.md#nested-routers)
 
-* prisma vscode 调试，打印prisma执行日志, 需要`launch.json`
-[https://www.prisma.io/docs/orm/prisma-client/debugging-and-troubleshooting/debugging](https://www.prisma.io/docs/orm/prisma-client/debugging-and-troubleshooting/debugging)
+* prisma vscode 调试，打印 prisma 执行日志, 需要`launch.json` [https://www.prisma.io/docs/orm/prisma-client/debugging-and-troubleshooting/debugging](https://www.prisma.io/docs/orm/prisma-client/debugging-and-troubleshooting/debugging)
 
-[https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes)
+[https://code.visualstudio.com/Docs/editor/debugging#\_launchjson-attributes](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes)
 
 * 利用`@koa/bodyparser`解析请求报文
 
@@ -20,12 +24,11 @@
 
 > [https://www.prisma.io/docs/orm/tools/prisma-cli](https://www.prisma.io/docs/orm/tools/prisma-cli)
 
-* mongodb副本集搭建
+* mongodb 副本集搭建
 
-> mongodb 数据库使用事务来支持嵌套写入，所以prisma需要一个部署了副本集的mongodb服务
+> mongodb 数据库使用事务来支持嵌套写入，所以 prisma 需要一个部署了副本集的 mongodb 服务
 
-[https://github.com/prisma/prisma/issues/8266](https://github.com/prisma/prisma/issues/8266)
-[https://github.com/prisma/docs/issues/2795](https://github.com/prisma/docs/issues/2795)
+[https://github.com/prisma/prisma/issues/8266](https://github.com/prisma/prisma/issues/8266) [https://github.com/prisma/docs/issues/2795](https://github.com/prisma/docs/issues/2795)
 
 ```yml
 version: "3"
@@ -40,11 +43,18 @@ services:
       - "28017:28017"
     volumes:
       - /Users/sijunfeng/data/docker/mongodata:/data/db
-
 ```
+
+执行 `docker-compose up -d` 启动一个本地 mongodb 服务用于开发环境
 
 > DATABASE_URL="mongodb://localhost:27017/zzbdiscar?directConnection=true"
 
 ## prisma REST API
 
-[https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md](https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md)
+* [https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md](https://github.com/prisma/prisma-examples/blob/latest/typescript/rest-koa/README.md)
+
+* @koa/router 库中关于 REST API 的使用参考 [https://github.com/koajs/router/blob/master/API.md](https://github.com/koajs/router/blob/master/API.md)
+
+## TODO
+
+* 完成权限集成(JWT 或其他形式)
