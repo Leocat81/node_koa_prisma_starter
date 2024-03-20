@@ -12,5 +12,5 @@ koa.use(
 );
 koa.use(route.routes());
 koa.listen(3003, () => {
-  console.log("server is running at http://localhost:3003");
+  console.log("🚀 server is running at http://localhost:3003");
 });
