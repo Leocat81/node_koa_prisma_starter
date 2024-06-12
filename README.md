@@ -45,11 +45,19 @@ services:
       - /Users/sijunfeng/data/docker/mongodata:/data/db
 ```
 
-执行 `docker-compose exec mongo mongo --eval "rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]});" 或docker-compose exec mongo mongosh --eval "rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]});"`
+1. 执行 `docker-compose up -d` 启动一个本地 mongodb 服务用于开发环境
 
-执行 `docker-compose up -d` 启动一个本地 mongodb 服务用于开发环境
+2. 执行 `docker-compose exec mongo mongo --eval "rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]});" 或docker-compose exec mongo mongosh --eval "rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]});"`
 
-> DATABASE_URL="mongodb://localhost:27017/zzbdiscar?directConnection=true"
+3. DATABASE_URL="mongodb://localhost:27017/zzbdiscar?directConnection=true"
+
+## Prisma Studio
+
+> [Prisma ORM 带有内置 GUI，可查看和编辑数据库中的数据](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#studio)
+
+```sh
+npx prisma studio
+```
 
 ## prisma REST API
 
