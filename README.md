@@ -65,7 +65,21 @@ npx prisma studio
 
 - @koa/router 库中关于 REST API 的使用参考 [https://github.com/koajs/router/blob/master/API.md](https://github.com/koajs/router/blob/master/API.md)
 
+## Docker Compose 部署
+
+- `dockerfile` 用于构建 Nodejs 服务环境
+- `.env.docker` 用于 docker 部署的环境变量
+- `docker-compose.yml` 用于 服务端和 mongo 环境部署
+
+```sh
+# 部署
+docker-compose up -d
+# 停止并删除已创建的镜像
+docker-compose down --rmi all
+```
+
 ## TODO
 
 - 完成权限集成(JWT 或其他形式)
 - 测试
+- docker 部署
